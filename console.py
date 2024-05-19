@@ -167,12 +167,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    if sys.stdin.isatty():
         HBNBCommand().cmdloop()
-    else:
-        cmd_instance = HBNBCommand()
-        sys.stdout.write(cmd_instance.prompt + "\n")
-        command = sys.stdin.read().strip()
-        if command:
-            cmd_instance.onecmd(command)
-        sys.stdout.write(cmd_instance.prompt + "\n")
