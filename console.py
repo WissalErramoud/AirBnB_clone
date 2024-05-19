@@ -21,6 +21,12 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
+    def postcmd(self, stop, line):
+        """Add a newline after the prompt if not in interactive mode."""
+        if not sys.stdin.isatty():
+            print(end='\n')
+        return stop
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
@@ -167,4 +173,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
